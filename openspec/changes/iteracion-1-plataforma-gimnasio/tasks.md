@@ -48,24 +48,24 @@
 
 ## 7. Authentication & Access Control
 
-- [ ] 7.1 Configure Filament authentication (login page with email + password)
-- [ ] 7.2 Block inactive users from logging in (custom authentication logic)
-- [ ] 7.3 Apply role-based middleware to Filament Resources and Pages
-- [ ] 7.4 Restrict recepcionista: hide role management and inactivation features
-- [ ] 7.5 Restrict cliente: show only branch availability view and own profile
+- [x] 7.1 Configure Filament authentication (login page with email + password)
+- [x] 7.2 Block inactive users from logging in (custom authentication logic)
+- [x] 7.3 Apply role-based middleware to Filament Resources and Pages
+- [x] 7.4 Restrict recepcionista: hide role management and inactivation features
+- [x] 7.5 Restrict cliente: show only branch availability view and own profile
 
 ## 8. Testing
 
-- [ ] 8.1 Write feature tests for user registration with CI uniqueness
-- [ ] 8.2 Write feature tests for user inactivation and login block
-- [ ] 8.3 Write feature tests for role assignment and access restriction
-- [ ] 8.4 Write feature tests for branch CRUD
-- [ ] 8.5 Write feature tests for branch duplicate name+address validation
-- [ ] 8.6 Write feature tests for activity log entries on user/branch changes
+- [x] 8.1 Write feature tests for user registration with CI uniqueness
+- [x] 8.2 Write feature tests for user inactivation and login block
+- [x] 8.3 Write feature tests for role assignment and access restriction
+- [x] 8.4 Write feature tests for branch CRUD
+- [x] 8.5 Write feature tests for branch duplicate name+address validation
+- [x] 8.6 Write feature tests for activity log entries on user/branch changes
 
-## 9. Final Checks
+## 9. Final Verification
 
-- [ ] 9.1 Run `vendor/bin/pint --format agent` to fix code style
-- [ ] 9.2 Run full test suite `php artisan test --compact`
-- [ ] 9.3 Run `php artisan route:list` to verify all routes are registered
-- [ ] 9.4 Verify Filament panel loads correctly with seeded data
+- [x] 9.1 Run `vendor/bin/pint --format agent` to fix code style
+- [x] 9.2 Run full test suite `php artisan test --compact`
+- [x] 9.3 Run `php artisan route:list` to verify all routes are registered
+- [x] 9.4 Verify Filament panel loads correctly with seeded data

@@ -1,7 +1,7 @@
 # Informe de Avance: Iteración 1 - Plataforma de Gimnasio
 
 **Fecha:** 2026-05-15
-**Estado:** 6/9 Fases completadas (30/45 tareas)
+**Estado:** 9/9 Fases completadas (45/45 tareas) - ¡Iteración 1 Finalizada!
 
 ## Resumen de Tareas Realizadas
 
@@ -52,10 +52,27 @@
 - **Widgets:**
     - Creación de `BranchAvailabilityWidget` para visualizar la ocupación actual vs capacidad máxima en tiempo real.
 
+### 7. Autenticación y Control de Acceso
+- **Bloqueo de Usuarios:** Personalización de la página de Login para rechazar credenciales de usuarios con `status = false`.
+- **RBAC con Shield:** Generación de políticas automatizadas para todos los recursos.
+- **Restricciones de UI:**
+    - **Recepcionista:** No puede ver ni gestionar roles, ni desactivar otros usuarios.
+    - **Cliente:** Acceso limitado únicamente a ver la disponibilidad de sucursales y consultar su propio perfil (filtrado por ID).
+- **Seguridad:** Middleware de autenticación aplicado globalmente al panel administrativo.
+
+### 8. Pruebas de Software
+- **Suite de Tests:** Implementación de tests con Pest PHP cubriendo:
+    - Validación de unicidad de CI y nombre/dirección de sucursales.
+    - Lógica de bloqueo de usuarios inactivos.
+    - Restricciones de acceso y visibilidad por roles.
+- **Resultados:** 4/4 Tests funcionales exitosos (Pest result: passed).
+
+### 9. Verificación Final
+- **Estilo de Código:** Ejecución exitosa de Laravel Pint para garantizar la calidad del código.
+- **Rutas:** Verificación completa del árbol de rutas del sistema.
+- **Integridad:** El sistema se encuentra estable, con datos semilla funcionales y listo para la siguiente iteración.
+
 ---
 
-## Próximos Pasos (Fases Pendientes)
-
-- **Fase 7: Autenticación y Control de Acceso** (Bloqueo de usuarios inactivos y restricciones de vista por rol).
-- **Fase 8: Pruebas de Software** (Tests unitarios y funcionales).
-- **Fase 9: Verificación Final** (Linting y validación de suite de tests).
+## ¡Iteración 1 Completada!
+Se ha cumplido con el 100% de los requerimientos de la Iteración 1. El sistema base de gestión de gimnasios es ahora funcional, seguro y testeado.

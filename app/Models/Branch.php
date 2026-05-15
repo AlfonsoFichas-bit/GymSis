@@ -2,12 +2,12 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Attributes\Fillable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-use Spatie\Activitylog\Traits\LogsActivity;
 use Spatie\Activitylog\LogOptions;
+use Spatie\Activitylog\Traits\LogsActivity;
 
 #[Fillable(['code', 'name', 'address', 'opening_time', 'closing_time', 'max_capacity', 'status'])]
 class Branch extends Model
@@ -29,7 +29,7 @@ class Branch extends Model
             ->logFillable()
             ->logOnlyDirty()
             ->useLogName('branch')
-            ->setDescriptionForEvent(fn(string $eventName) => match($eventName) {
+            ->setDescriptionForEvent(fn (string $eventName) => match ($eventName) {
                 'created' => "Sucursal '{$this->name}' ha sido creada.",
                 'updated' => "Sucursal '{$this->name}' ha sido actualizada.",
                 'deleted' => "Sucursal '{$this->name}' ha sido eliminada.",

@@ -2,7 +2,10 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Branch;
+use App\Models\BranchResource;
+use App\Models\BranchService;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 
 class DummyDataSeeder extends Seeder
@@ -13,15 +16,15 @@ class DummyDataSeeder extends Seeder
     public function run(): void
     {
         // 1. Create Branches with Services and Resources
-        \App\Models\Branch::factory()
+        Branch::factory()
             ->count(5)
             ->create()
             ->each(function ($branch) {
-                \App\Models\BranchService::factory()
+                BranchService::factory()
                     ->count(rand(2, 4))
                     ->create(['branch_id' => $branch->id]);
 
-                \App\Models\BranchResource::factory()
+                BranchResource::factory()
                     ->count(rand(3, 6))
                     ->create(['branch_id' => $branch->id]);
             });
@@ -30,7 +33,7 @@ class DummyDataSeeder extends Seeder
         $types = ['admin', 'recepcionista', 'empleado', 'cliente'];
 
         foreach ($types as $type) {
-            \App\Models\User::factory()
+            User::factory()
                 ->count(2)
                 ->create(['type' => $type]);
         }

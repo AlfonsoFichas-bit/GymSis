@@ -2,12 +2,14 @@
 
 namespace App\Filament\Resources\Branches\Schemas;
 
+use Filament\Forms\Components\Repeater;
+use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\TimePicker;
 use Filament\Forms\Components\Toggle;
-use Filament\Forms\Components\Repeater;
-use Filament\Forms\Components\Textarea;
+use Filament\Schemas\Components\Utilities\Get;
 use Filament\Schemas\Schema;
+use Illuminate\Validation\Rules\Unique;
 
 class BranchForm
 {
@@ -22,7 +24,10 @@ class BranchForm
                     ->placeholder('SUC-XXX'),
                 TextInput::make('name')
                     ->label('Nombre')
-                    ->required(),
+                    ->required()
+                    ->unique(modifyRuleUsing: function (Unique $rule, Get $get) {
+                        return $rule->where('address', $get('address'));
+                    }, ignoreRecord: true),
                 TextInput::make('address')
                     ->label('Dirección')
                     ->required(),

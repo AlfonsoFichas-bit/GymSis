@@ -2,11 +2,11 @@
 
 namespace App\Providers;
 
-use Illuminate\Support\ServiceProvider;
-use App\Models\User;
 use App\Models\Branch;
-use App\Observers\UserObserver;
+use App\Models\User;
 use App\Observers\BranchObserver;
+use App\Observers\UserObserver;
+use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
 {

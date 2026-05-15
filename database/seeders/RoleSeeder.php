@@ -2,10 +2,9 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
+use Spatie\Permission\Models\Role;
 
 class RoleSeeder extends Seeder
 {
@@ -14,22 +13,18 @@ class RoleSeeder extends Seeder
      */
     public function run(): void
     {
-        // Create permissions
-        $permissions = [
-            'user.view',
-            'user.create',
-            'user.edit',
-            'user.inactivate',
-            'user.assign_role',
-            'branch.view',
-            'branch.create',
-            'branch.edit',
-            'branch.view_availability',
-        ];
+        // Shield Permissions
+        $models = ['User', 'Branch', 'Role'];
+        $actions = ['ViewAny', 'View', 'Create', 'Update', 'Delete', 'DeleteAny', 'Restore', 'RestoreAny', 'ForceDelete', 'ForceDeleteAny', 'Replicate', 'Reorder'];
 
-        foreach ($permissions as $permission) {
-            Permission::findOrCreate($permission);
+        foreach ($models as $model) {
+            foreach ($actions as $action) {
+                Permission::findOrCreate("{$action}:{$model}");
+            }
         }
+
+        Permission::findOrCreate('view_availability:Branch');
+        Permission::findOrCreate('inactivate:User');
 
         // Create roles and assign permissions
         $admin = Role::findOrCreate('admin');
@@ -37,22 +32,27 @@ class RoleSeeder extends Seeder
 
         $recepcionista = Role::findOrCreate('recepcionista');
         $recepcionista->givePermissionTo([
-            'user.view',
-            'user.create',
-            'user.edit',
-            'branch.view',
-            'branch.view_availability',
+            'ViewAny:User',
+            'View:User',
+            'Create:User',
+            'Update:User',
+            'ViewAny:Branch',
+            'View:Branch',
+            'view_availability:Branch',
         ]);
 
         $empleado = Role::findOrCreate('empleado');
         $empleado->givePermissionTo([
-            'branch.view',
-            'branch.view_availability',
+            'ViewAny:Branch',
+            'View:Branch',
+            'view_availability:Branch',
         ]);
 
         $cliente = Role::findOrCreate('cliente');
         $cliente->givePermissionTo([
-            'branch.view_availability',
+            'ViewAny:Branch',
+            'View:Branch',
+            'view_availability:Branch',
         ]);
     }
 }

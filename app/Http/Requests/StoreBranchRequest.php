@@ -4,6 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class StoreBranchRequest extends FormRequest
 {
@@ -29,7 +30,7 @@ class StoreBranchRequest extends FormRequest
                 'required',
                 'string',
                 'max:255',
-                \Illuminate\Validation\Rule::unique('branches')
+                Rule::unique('branches')
                     ->where('address', $this->address)
                     ->ignore($branchId),
             ],

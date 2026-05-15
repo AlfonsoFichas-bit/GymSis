@@ -11,10 +11,10 @@ class BranchObserver
      */
     public function creating(Branch $branch): void
     {
-        if (!$branch->code) {
+        if (! $branch->code) {
             $lastBranch = Branch::orderBy('id', 'desc')->first();
             $nextNumber = $lastBranch ? ((int) str_replace('SUC-', '', $lastBranch->code)) + 1 : 1;
-            $branch->code = 'SUC-' . str_pad($nextNumber, 3, '0', STR_PAD_LEFT);
+            $branch->code = 'SUC-'.str_pad($nextNumber, 3, '0', STR_PAD_LEFT);
         }
     }
 

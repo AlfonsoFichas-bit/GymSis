@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Branch;
 use App\Models\BranchResource;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -18,8 +19,9 @@ class BranchResourceFactory extends Factory
     public function definition(): array
     {
         $total = fake()->numberBetween(10, 50);
+
         return [
-            'branch_id' => \App\Models\Branch::factory(),
+            'branch_id' => Branch::factory(),
             'name' => fake()->randomElement(['Mancuernas', 'Bicicletas', 'Caminadoras', 'Colchonetas']),
             'type' => fake()->randomElement(['Equipo', 'Accesorio', 'Mobiliario']),
             'total_quantity' => $total,

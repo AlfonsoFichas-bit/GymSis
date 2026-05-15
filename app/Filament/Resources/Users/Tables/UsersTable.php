@@ -5,7 +5,6 @@ namespace App\Filament\Resources\Users\Tables;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
-use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Columns\ToggleColumn;
 use Filament\Tables\Table;
@@ -43,7 +42,8 @@ class UsersTable
                     ->badge()
                     ->searchable(),
                 ToggleColumn::make('status')
-                    ->label('Estado'),
+                    ->label('Estado')
+                    ->disabled(fn () => ! auth()->user()->can('inactivate:User')),
                 TextColumn::make('created_at')
                     ->label('Creado el')
                     ->dateTime()

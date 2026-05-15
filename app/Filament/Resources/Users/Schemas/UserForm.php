@@ -4,9 +4,9 @@ namespace App\Filament\Resources\Users\Schemas;
 
 use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\DateTimePicker;
+use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
-use Filament\Forms\Components\Select;
 use Filament\Schemas\Schema;
 use Illuminate\Support\Facades\Hash;
 
@@ -36,7 +36,8 @@ class UserForm
                     ->label('Fecha de Nacimiento'),
                 Toggle::make('status')
                     ->label('Estado Activo')
-                    ->default(true),
+                    ->default(true)
+                    ->disabled(fn () => ! auth()->user()->can('inactivate:User')),
                 Select::make('type')
                     ->label('Tipo de Usuario')
                     ->options([
@@ -45,13 +46,15 @@ class UserForm
                         'empleado' => 'Empleado',
                         'cliente' => 'Cliente',
                     ])
-                    ->required(),
+                    ->required()
+                    ->disabled(fn () => ! auth()->user()->can('Update:User')),
                 Select::make('roles')
                     ->relationship('roles', 'name')
                     ->multiple()
                     ->preload()
                     ->searchable()
-                    ->label('Roles'),
+                    ->label('Roles')
+                    ->visible(fn () => auth()->user()->can('ViewAny:Role')),
                 TextInput::make('password')
                     ->password()
                     ->dehydrateStateUsing(fn ($state) => Hash::make($state))

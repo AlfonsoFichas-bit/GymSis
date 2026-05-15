@@ -4,8 +4,6 @@ namespace App\Filament\Resources\Branches\Widgets;
 
 use Filament\Widgets\StatsOverviewWidget;
 use Filament\Widgets\StatsOverviewWidget\Stat;
-
-use App\Models\Branch;
 use Illuminate\Database\Eloquent\Model;
 
 class BranchAvailabilityWidget extends StatsOverviewWidget
@@ -14,7 +12,7 @@ class BranchAvailabilityWidget extends StatsOverviewWidget
 
     protected function getStats(): array
     {
-        if (!$this->record) {
+        if (! $this->record) {
             return [];
         }
 

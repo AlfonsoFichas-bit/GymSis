@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Branch;
 use App\Models\BranchService;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -18,7 +19,7 @@ class BranchServiceFactory extends Factory
     public function definition(): array
     {
         return [
-            'branch_id' => \App\Models\Branch::factory(),
+            'branch_id' => Branch::factory(),
             'name' => fake()->randomElement(['Gimnasio', 'Piscina', 'Yoga', 'Crossfit']),
             'description' => fake()->sentence(),
             'capacity' => fake()->numberBetween(10, 50),
