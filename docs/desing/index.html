@@ -1,0 +1,370 @@
+<!doctype html>
+
+<html class="dark" lang="es">
+    <head>
+        <meta charset="utf-8" />
+        <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+        <title>Voltage Grit</title>
+        <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+        <link href="https://fonts.googleapis.com" rel="preconnect" />
+        <link
+            crossorigin=""
+            href="https://fonts.gstatic.com"
+            rel="preconnect"
+        />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&amp;family=Oswald:wght@600;700&amp;display=swap"
+            rel="stylesheet"
+        />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+            rel="stylesheet"
+        />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+            rel="stylesheet"
+        />
+        <script id="tailwind-config">
+            tailwind.config = {
+                darkMode: "class",
+                theme: {
+                    extend: {
+                        colors: {
+                            background: "#121414",
+                            "secondary-fixed": "#79ff5b",
+                            "on-primary-container": "#556d00",
+                            "on-secondary-container": "#0f6d00",
+                            surface: "#121414",
+                            "inverse-on-surface": "#2f3131",
+                            "on-tertiary-fixed": "#0b1d29",
+                            "on-tertiary": "#21323e",
+                            "surface-tint": "#abd600",
+                            secondary: "#d7ffc5",
+                            "on-primary": "#283500",
+                            "surface-dim": "#121414",
+                            outline: "#8e9379",
+                            "inverse-primary": "#506600",
+                            "on-surface": "#e2e2e2",
+                            "surface-bright": "#38393a",
+                            "tertiary-container": "#d2e5f5",
+                            "on-background": "#e2e2e2",
+                            "surface-container-highest": "#333535",
+                            "error-container": "#93000a",
+                            "on-tertiary-container": "#556774",
+                            "on-secondary": "#053900",
+                            tertiary: "#ffffff",
+                            "on-tertiary-fixed-variant": "#374956",
+                            "on-primary-fixed": "#161e00",
+                            "tertiary-fixed": "#d2e5f5",
+                            "on-primary-fixed-variant": "#3c4d00",
+                            "secondary-container": "#2ff801",
+                            "on-surface-variant": "#c4c9ac",
+                            "surface-container": "#1e2020",
+                            "on-secondary-fixed-variant": "#095300",
+                            "primary-fixed": "#c3f400",
+                            "primary-fixed-dim": "#abd600",
+                            "tertiary-fixed-dim": "#b6c9d8",
+                            "surface-variant": "#333535",
+                            "outline-variant": "#444933",
+                            "surface-container-high": "#282a2b",
+                            "surface-container-lowest": "#0c0f0f",
+                            "inverse-surface": "#e2e2e2",
+                            error: "#ffb4ab",
+                            "on-error-container": "#ffdad6",
+                            "primary-container": "#c3f400",
+                            "secondary-fixed-dim": "#2ae500",
+                            primary: "#ffffff",
+                            "surface-container-low": "#1a1c1c",
+                            "on-error": "#690005",
+                            "on-secondary-fixed": "#022100",
+                        },
+                        borderRadius: {
+                            DEFAULT: "0.25rem",
+                            lg: "0.5rem",
+                            xl: "0.75rem",
+                            full: "9999px",
+                        },
+                        spacing: {
+                            "margin-mobile": "16px",
+                            "container-max": "1280px",
+                            unit: "8px",
+                            gutter: "24px",
+                            "margin-desktop": "48px",
+                        },
+                        fontFamily: {
+                            "display-lg": ["Oswald"],
+                            "headline-lg": ["Oswald"],
+                            "label-bold": ["Montserrat"],
+                            "headline-md": ["Oswald"],
+                            "headline-lg-mobile": ["Oswald"],
+                            "body-md": ["Montserrat"],
+                            "body-lg": ["Montserrat"],
+                        },
+                        fontSize: {
+                            "display-lg": [
+                                "72px",
+                                {
+                                    lineHeight: "80px",
+                                    letterSpacing: "-0.02em",
+                                    fontWeight: "700",
+                                },
+                            ],
+                            "headline-lg": [
+                                "48px",
+                                { lineHeight: "56px", fontWeight: "600" },
+                            ],
+                            "label-bold": [
+                                "14px",
+                                {
+                                    lineHeight: "20px",
+                                    letterSpacing: "0.05em",
+                                    fontWeight: "700",
+                                },
+                            ],
+                            "headline-md": [
+                                "32px",
+                                { lineHeight: "40px", fontWeight: "600" },
+                            ],
+                            "headline-lg-mobile": [
+                                "36px",
+                                { lineHeight: "44px", fontWeight: "600" },
+                            ],
+                            "body-md": [
+                                "16px",
+                                { lineHeight: "24px", fontWeight: "400" },
+                            ],
+                            "body-lg": [
+                                "18px",
+                                { lineHeight: "28px", fontWeight: "400" },
+                            ],
+                        },
+                    },
+                },
+            };
+        </script>
+        <style>
+            .grit-bg {
+                position: relative;
+            }
+            .grit-bg::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+                opacity: 0.05;
+                pointer-events: none;
+                z-index: 10;
+            }
+            .neon-glow {
+                box-shadow: 0 0 12px 0 rgba(195, 244, 0, 0.5);
+            }
+            .glass-panel {
+                background: rgba(26, 26, 26, 0.6);
+                backdrop-filter: blur(12px);
+            }
+        </style>
+    </head>
+    <body
+        class="bg-background text-on-background font-body-md text-body-md antialiased grit-bg overflow-x-hidden selection:bg-primary-container selection:text-on-primary-container"
+    >
+        <!-- TopNavBar -->
+        <nav
+            class="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-md border-b border-outline-variant/30 flex justify-between items-center px-margin-desktop py-4 max-w-container-max mx-auto md:px-margin-desktop px-margin-mobile"
+        >
+            <div
+                class="font-display-lg text-headline-md italic uppercase text-primary tracking-tighter"
+            >
+                VOLTAGE GRIT
+            </div>
+            <div class="hidden md:flex space-x-8 items-center">
+                <a
+                    class="text-on-surface-variant hover:text-primary transition-colors hover:bg-primary/10 hover:text-secondary-fixed transition-all duration-300 px-3 py-2 rounded-md font-label-bold text-label-bold"
+                    href="#"
+                    >Classes</a
+                >
+                <a
+                    class="text-on-surface-variant hover:text-primary transition-colors hover:bg-primary/10 hover:text-secondary-fixed transition-all duration-300 px-3 py-2 rounded-md font-label-bold text-label-bold"
+                    href="#"
+                    >Facilities</a
+                >
+                <a
+                    class="text-on-surface-variant hover:text-primary transition-colors hover:bg-primary/10 hover:text-secondary-fixed transition-all duration-300 px-3 py-2 rounded-md font-label-bold text-label-bold"
+                    href="#"
+                    >Prices</a
+                >
+                <a
+                    class="text-on-surface-variant hover:text-primary transition-colors hover:bg-primary/10 hover:text-secondary-fixed transition-all duration-300 px-3 py-2 rounded-md font-label-bold text-label-bold"
+                    href="#"
+                    >Team</a
+                >
+            </div>
+            <button
+                class="bg-primary-container text-on-primary-container font-label-bold text-label-bold px-6 py-3 rounded-none uppercase hover:neon-glow transition-all hidden md:block"
+            >
+                Join Now
+            </button>
+            <button class="md:hidden text-primary">
+                <span class="material-symbols-outlined">menu</span>
+            </button>
+        </nav>
+        <!-- Hero Section -->
+        <section
+            class="relative min-h-[921px] flex items-center justify-center pt-24 overflow-hidden"
+        >
+            <!-- Video Background Placeholder via CSS background -->
+            <div
+                class="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
+                data-alt="A gritty, cinematic shot of a high-end industrial gym. The lighting is low and dramatic, with deep shadows and subtle neon green light leaks illuminating heavy black steel equipment. An athlete is visible in the background, out of focus, immersed in a high-intensity workout. The mood is raw, powerful, and focused, perfectly capturing the 'hardcore modern' aesthetic of a serious training facility."
+                style="
+                    background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuBAPQa3RNdy3wOoHfmra4vI38I7gXm42PIaZnXd3iYrnx4yPcOBj4cZKFTiur6eUcutihkXRusjOhbOZuquy86cuvMQ7s9X_jq1RHjnduc-SJ3tiGvTF-kMCaT8WYkG2ekAhAbNwrHq61ftbah9GNL3zX2Ui1vKixean8DG8zNUibOOBLm4prZiYFBC95FLRvclVOd2frvOJAGWbrHxlVG0nXZ6qAP07pAMo-lLtoB1qju_b0rM4NIx6Fh0oFaX5tI3PyrNthmNzr0&quot;);
+                "
+            >
+                <div class="absolute inset-0 bg-background/80"></div>
+            </div>
+            <div
+                class="relative z-10 text-center px-margin-mobile max-w-4xl mx-auto flex flex-col items-center gap-8"
+            >
+                <h1
+                    class="font-display-lg text-headline-lg-mobile md:text-display-lg text-primary uppercase tracking-tighter"
+                >
+                    TU MEJOR VERSIÓN EMPIEZA HOY
+                </h1>
+                <p
+                    class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl"
+                >
+                    Entrena en un ambiente de alto rendimiento diseñado para
+                    forjar disciplina y resultados. No es solo un gimnasio, es
+                    tu campo de batalla.
+                </p>
+                <button
+                    class="mt-4 bg-primary-container text-on-primary-container font-label-bold text-label-bold px-10 py-4 uppercase tracking-widest hover:neon-glow transition-all border border-primary-container"
+                >
+                    PRUEBA UN DÍA GRATIS
+                </button>
+            </div>
+        </section>
+        <!-- Footer -->
+        <footer
+            class="bg-surface-container-lowest w-full relative border-t border-outline-variant"
+        >
+            <div
+                class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-mobile md:px-margin-desktop py-12 max-w-container-max mx-auto"
+            >
+                <div class="flex flex-col gap-4">
+                    <span
+                        class="font-display-lg text-headline-md italic text-primary"
+                        >VOLTAGE GRIT</span
+                    >
+                    <p
+                        class="font-body-md text-body-md text-on-surface-variant"
+                    >
+                        Unleash the power within. El entorno definitivo para tu
+                        transformación física y mental.
+                    </p>
+                </div>
+                <div class="flex flex-col gap-3">
+                    <h4
+                        class="font-label-bold text-label-bold text-primary uppercase tracking-widest"
+                    >
+                        Links
+                    </h4>
+                    <a
+                        class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors"
+                        href="#"
+                        >Privacy Policy</a
+                    >
+                    <a
+                        class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors"
+                        href="#"
+                        >Terms of Service</a
+                    >
+                    <a
+                        class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors"
+                        href="#"
+                        >Contact Us</a
+                    >
+                    <a
+                        class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors"
+                        href="#"
+                        >Careers</a
+                    >
+                </div>
+                <div class="flex flex-col gap-3">
+                    <h4
+                        class="font-label-bold text-label-bold text-primary uppercase tracking-widest"
+                    >
+                        Contacto
+                    </h4>
+                    <p
+                        class="font-body-md text-body-md text-on-surface-variant"
+                    >
+                        Lunes - Viernes: 24h
+                    </p>
+                    <p
+                        class="font-body-md text-body-md text-on-surface-variant"
+                    >
+                        Sáb - Dom: 6am - 10pm
+                    </p>
+                    <div class="flex gap-4 mt-2">
+                        <a
+                            class="text-on-surface-variant hover:text-primary transition-colors"
+                            href="#"
+                            ><span class="material-symbols-outlined"
+                                >link</span
+                            ></a
+                        >
+                        <a
+                            class="text-on-surface-variant hover:text-primary transition-colors"
+                            href="#"
+                            ><span class="material-symbols-outlined"
+                                >mail</span
+                            ></a
+                        >
+                    </div>
+                </div>
+                <div
+                    class="flex flex-col gap-3 h-48 bg-surface-container rounded overflow-hidden relative border border-outline-variant/30"
+                >
+                    <img
+                        alt="Map"
+                        class="w-full h-full object-cover opacity-50 grayscale"
+                        data-alt="A stylized, highly contrasted map showing an urban grid. The map is displayed in dark mode with deep black backgrounds and sharp, high-contrast grey lines representing streets. A glowing neon green marker pinpoints a specific location, standing out starkly against the gritty, industrial aesthetic of the dark map. The lighting implies a modern, high-tech interface."
+                        data-location="Madrid"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuCQt4RHElR1xxkz8gLqn5j4Chndh69deLu-fW9_qqA02cqRbe3zuKriLGCg4oweYIhWDOmdunOmZO-05M4z0EkodvyheMSUkZd198gDJSfJornWE5uXuK8LsSXSPAT06j1lnkDjI2KDlwKpSsnm9GZvCcMAWnc1LsjEv5LkLtrd8hONn5GCaUAcrK9RzywtZl-IvWJzY_yKWE8FQKx2N3H-26TuKqgo7nm9p_McNS7rVv54N0UKCjBDyaK3armIqJPCGvMWcHxmRoM"
+                    />
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-background to-transparent pointer-events-none"
+                    ></div>
+                    <div
+                        class="absolute bottom-2 left-2 text-primary font-label-bold text-label-bold text-xs"
+                    >
+                        <span
+                            class="material-symbols-outlined text-[16px] align-middle mr-1"
+                            >location_on</span
+                        >
+                        Distrito Centro
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-outline-variant/30 py-6 text-center">
+                <p class="font-body-md text-body-md text-on-surface-variant">
+                    © 2024 VOLTAGE GRIT. UNLEASH THE POWER WITHIN.
+                </p>
+            </div>
+        </footer>
+        <!-- FAB -->
+        <a
+            class="fixed bottom-8 right-8 z-50 bg-secondary-fixed text-on-secondary-fixed w-14 h-14 flex items-center justify-center rounded-full shadow-[0_0_15px_rgba(121,255,91,0.4)] hover:scale-110 transition-transform"
+            href="#"
+        >
+            <span
+                class="material-symbols-outlined"
+                style="font-variation-settings: &quot;FILL&quot; 1"
+                >chat</span
+            >
+        </a>
+    </body>
+</html>

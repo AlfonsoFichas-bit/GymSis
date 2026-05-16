@@ -18,12 +18,13 @@ class BranchFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => fake()->company().' Branch',
-            'address' => fake()->address(),
-            'opening_time' => '06:00',
-            'closing_time' => '22:00',
-            'max_capacity' => fake()->numberBetween(50, 200),
-            'status' => true,
+            "code" => "BR-" . fake()->unique()->bothify("###??"),
+            "name" => fake()->company() . " Branch",
+            "address" => fake()->address(),
+            "opening_time" => "06:00",
+            "closing_time" => "22:00",
+            "max_capacity" => fake()->numberBetween(50, 200),
+            "status" => true,
         ];
     }
 }
