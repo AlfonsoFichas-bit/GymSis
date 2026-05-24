@@ -27,6 +27,11 @@ class BranchResource extends Resource
 
     protected static ?string $pluralModelLabel = 'Sucursales';
 
+    public static function shouldRegisterNavigation(): bool
+    {
+        return false;
+    }
+
     public static function form(Schema $schema): Schema
     {
         return BranchForm::configure($schema);
@@ -46,9 +51,7 @@ class BranchResource extends Resource
 
     public static function getWidgets(): array
     {
-        return [
-            BranchAvailabilityWidget::class,
-        ];
+        return [BranchAvailabilityWidget::class];
     }
 
     public static function getPages(): array

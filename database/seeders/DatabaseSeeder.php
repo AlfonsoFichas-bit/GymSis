@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -20,14 +21,14 @@ class DatabaseSeeder extends Seeder
 
         // Crear usuario administrador por defecto
         $admin = User::factory()->create([
-            "name" => "Admin GymSis",
-            "email" => "admin@gymsis.com",
-            "password" => \Illuminate\Support\Facades\Hash::make("Admin123!"), // Contraseña segura: Min, May, Num, Especial
-            "type" => "admin",
+            'name' => 'Admin GymSis',
+            'email' => 'admin@gymsis.com',
+            'password' => Hash::make('Admin123!'), // Contraseña segura: Min, May, Num, Especial
+            'type' => 'admin',
         ]);
 
         // Asignar el rol de administrador de Spatie
-        $admin->assignRole("admin");
+        $admin->assignRole('admin');
 
         // Otros datos de prueba, para poblar la base de datos
         // $this->call(DummyDataSeeder::class);

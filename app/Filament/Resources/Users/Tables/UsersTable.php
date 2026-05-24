@@ -35,6 +35,7 @@ class UsersTable
                         'recepcionista' => 'warning',
                         'empleado' => 'info',
                         'cliente' => 'success',
+                        'entrenador' => 'primary',
                     })
                     ->searchable(),
                 TextColumn::make('roles.name')

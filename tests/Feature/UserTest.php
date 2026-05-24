@@ -26,3 +26,30 @@ it('requires a unique CI', function () {
         ->call('create')
         ->assertHasFormErrors(['ci' => 'unique']);
 });
+
+it('assigns the default cliente role when created without type or explicit role', function () {
+    $this->seed(RoleSeeder::class);
+
+    $user = User::factory()->create([
+        'type' => null,
+    ]);
+
+    $user->refresh();
+
+    expect($user->hasRole('cliente'))->toBeTrue();
+    expect($user->type)->toBe('cliente');
+});
+
+it('ensures explicit type assignment takes precedence over fallback role assignment', function () {
+    $this->seed(RoleSeeder::class);
+
+    $user = User::factory()->create([
+        'type' => 'admin',
+    ]);
+
+    $user->refresh();
+
+    expect($user->hasRole('admin'))->toBeTrue();
+    expect($user->hasRole('cliente'))->toBeFalse();
+    expect($user->type)->toBe('admin');
+});

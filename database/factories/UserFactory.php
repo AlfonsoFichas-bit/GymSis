@@ -35,7 +35,7 @@ class UserFactory extends Factory
             'address' => fake()->address(),
             'birth_date' => fake()->date(),
             'status' => true,
-            'type' => fake()->randomElement(['cliente', 'empleado', 'admin']),
+            'type' => fake()->randomElement(['cliente', 'empleado', 'admin', 'entrenador']),
         ];
     }
 

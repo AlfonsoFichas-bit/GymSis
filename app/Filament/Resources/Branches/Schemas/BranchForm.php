@@ -3,12 +3,12 @@
 namespace App\Filament\Resources\Branches\Schemas;
 
 use Filament\Forms\Components\Repeater;
-use Filament\Schemas\Components\Section;
-use Filament\Schemas\Components\Grid;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\TimePicker;
 use Filament\Forms\Components\Toggle;
+use Filament\Schemas\Components\Grid;
+use Filament\Schemas\Components\Section;
 use Filament\Schemas\Components\Utilities\Get;
 use Filament\Schemas\Schema;
 use Illuminate\Validation\Rules\Unique;
@@ -38,7 +38,7 @@ class BranchForm
                             ->label('Dirección')
                             ->required()
                             ->columnSpanFull(), // Que ocupe todo el ancho
-                        
+
                         Grid::make(2) // Dividimos en 2 columnas para horarios y capacidad
                             ->schema([
                                 TimePicker::make('opening_time')

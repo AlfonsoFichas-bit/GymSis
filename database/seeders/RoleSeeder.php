@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\User;
 use Illuminate\Database\Seeder;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
@@ -54,5 +55,22 @@ class RoleSeeder extends Seeder
             'View:Branch',
             'view_availability:Branch',
         ]);
+
+        $entrenador = Role::findOrCreate('entrenador');
+        $entrenador->givePermissionTo([
+            'ViewAny:Branch',
+            'View:Branch',
+            'view_availability:Branch',
+        ]);
+
+        User::all()->each(function (User $user) {
+            if ($user->roles()->count() === 0) {
+                $user->assignRole('cliente');
+                if (! $user->type) {
+                    $user->type = 'cliente';
+                    $user->save();
+                }
+            }
+        });
     }
 }

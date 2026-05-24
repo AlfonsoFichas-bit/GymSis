@@ -45,16 +45,10 @@ class UserForm
                         'recepcionista' => 'Recepcionista',
                         'empleado' => 'Empleado',
                         'cliente' => 'Cliente',
+                        'entrenador' => 'Entrenador',
                     ])
                     ->required()
                     ->disabled(fn () => ! auth()->user()->can('Update:User')),
-                Select::make('roles')
-                    ->relationship('roles', 'name')
-                    ->multiple()
-                    ->preload()
-                    ->searchable()
-                    ->label('Roles')
-                    ->visible(fn () => auth()->user()->can('ViewAny:Role')),
                 TextInput::make('password')
                     ->password()
                     ->dehydrateStateUsing(fn ($state) => Hash::make($state))

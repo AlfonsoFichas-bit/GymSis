@@ -7,12 +7,30 @@ use App\Models\User;
 class UserObserver
 {
     /**
+     * Handle the User "creating" event.
+     */
+    public function creating(User $user): void
+    {
+        if (is_null($user->type)) {
+            $user->type = 'cliente';
+        }
+    }
+
+    /**
      * Handle the User "created" event.
      */
     public function created(User $user): void
     {
         if ($user->type) {
             $user->assignRole($user->type);
+        }
+
+        if ($user->roles()->count() === 0) {
+            $user->assignRole('cliente');
+            if (! $user->type) {
+                $user->type = 'cliente';
+                $user->saveQuietly();
+            }
         }
     }
 
