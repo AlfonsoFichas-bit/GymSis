@@ -18,7 +18,7 @@ it('redirects after successful user creation', function () {
             'name' => 'New User',
             'email' => 'newuser@example.com',
             'ci' => '87654321',
-            'password' => 'password',
+            'password' => 'P@ssw0rd',
             'type' => 'cliente',
         ])
         ->call('create')

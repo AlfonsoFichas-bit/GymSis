@@ -33,7 +33,7 @@ class UserFactory extends Factory
             'ci' => fake()->unique()->numerify('########'),
             'phone' => fake()->phoneNumber(),
             'address' => fake()->address(),
-            'birth_date' => fake()->date(),
+            'birth_date' => fake()->dateTimeBetween('-60 years', '-18 years')->format('Y-m-d'),
             'status' => true,
             'type' => fake()->randomElement(['cliente', 'empleado', 'admin', 'entrenador']),
         ];

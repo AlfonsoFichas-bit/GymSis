@@ -48,7 +48,7 @@ it('processes user creation in less than 3 seconds', function () {
             'name' => 'John Doe',
             'email' => 'john.doe@example.com',
             'ci' => '98765432',
-            'password' => 'SecurePassword123!',
+            'password' => 'S3cur3P@ss!',
             'type' => 'cliente',
         ])
         ->call('create')

@@ -33,7 +33,11 @@ class UserForm
                 TextInput::make('address')
                     ->label('Dirección'),
                 DatePicker::make('birth_date')
-                    ->label('Fecha de Nacimiento'),
+                    ->label('Fecha de Nacimiento')
+                    ->before('-18 years')
+                    ->validationMessages([
+                        'before' => 'Debes ser mayor de 18 años para registrarte.',
+                    ]),
                 Toggle::make('status')
                     ->label('Estado Activo')
                     ->default(true)
@@ -53,7 +57,15 @@ class UserForm
                     ->password()
                     ->dehydrateStateUsing(fn ($state) => Hash::make($state))
                     ->dehydrated(fn ($state) => filled($state))
-                    ->required(fn (string $context): bool => $context === 'create'),
+                    ->required(fn (string $context): bool => $context === 'create')
+                    ->rules([
+                        'min:8',
+                        'regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&.])[A-Za-z\d@$!%*?&.]+$/',
+                    ])
+                    ->validationMessages([
+                        'min' => 'La contraseña debe tener al menos 8 caracteres.',
+                        'regex' => 'La contraseña debe contener al menos una mayúscula, una minúscula, un número y un carácter especial (@, $, !, %, *, ?, &, .).',
+                    ]),
             ]);
     }
 }
