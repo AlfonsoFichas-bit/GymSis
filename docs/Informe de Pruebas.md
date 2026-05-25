@@ -41,7 +41,26 @@ A continuación se presenta la matriz de cumplimiento que vincula los requerimie
 
 ---
 
-## 2. Pruebas de Característica (Automated Feature Tests)
+## 2. Bitácora de Pruebas Manuales (Insomnia)
+
+Para documentar las pruebas realizadas con el archivo `docs/insomnia_config.json`, utilice la siguiente tabla de evidencias:
+
+| ID | Petición ejecutada | Código HTTP | Observación / Hallazgo | Evidencia |
+| :--- | :--- | :---: | :--- | :--- |
+| **PM-01** | Login Exitoso (HU-02) | 200/302 | Inicio de sesión correcto. | [Imagen/Link] |
+| **PM-02** | CI Duplicado (HU-01) | 422/302 | El sistema rebota la petición con error de validación. | [Imagen/Link] |
+| **PM-03** | Acceso Restringido (HU-03) | 403 | El usuario con rol cliente no pudo listar usuarios. | [Imagen/Link] |
+| **PM-04** | Login Inactivo (HU-04) | 422 | Credenciales correctas pero acceso denegado por status. | [Imagen/Link] |
+
+### Instrucciones para Documentar:
+1. Ejecutar la petición en Insomnia.
+2. Tomar una captura de pantalla del "Response" (Panel derecho).
+3. Anotar el código de estado (Status Code) recibido.
+4. Adjuntar la evidencia en la columna correspondiente.
+
+---
+
+## 3. Pruebas de Característica (Automated Feature Tests)
 
 Se ejecutó la suite completa de tests mediante **Pest PHP** con los siguientes resultados:
 
@@ -52,7 +71,7 @@ Se ejecutó la suite completa de tests mediante **Pest PHP** con los siguientes 
 
 ---
 
-## 3. Pruebas de Caja Negra (Black Box)
+## 4. Pruebas de Caja Negra (Black Box)
 
 Estas pruebas simulan el comportamiento del usuario final para validar los Criterios de Aceptación desde la UI/UX.
 
@@ -66,6 +85,6 @@ Estas pruebas simulan el comportamiento del usuario final para validar los Crite
 
 ---
 
-## 4. Dictamen Final del Metodólogo
+## 5. Dictamen Final del Metodólogo
 
 Tras analizar los resultados y la trazabilidad con el documento `newSprint1.md`, se dictamina que el incremento de software es **APTO** para su entrega. Se ha demostrado que cada funcionalidad no solo existe, sino que se comporta según las reglas de negocio establecidas en los criterios de valoración.
