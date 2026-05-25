@@ -1,0 +1,147 @@
+{
+	"_type": "export",
+	"__export_format": 4,
+	"__export_date": "2025-05-15T12:00:00.000Z",
+	"__export_source": "insomnia.desktop.app:v2023.5.8",
+	"resources": [
+		{
+			"_id": "wrk_gymsis",
+			"parentId": null,
+			"modified": 1715774400000,
+			"created": 1715774400000,
+			"name": "GymSis API & Web Routes",
+			"description": "Colección para probar las rutas principales de GymSis (Sprint 1)",
+			"scope": "collection",
+			"_type": "workspace"
+		},
+		{
+			"_id": "env_local",
+			"parentId": "wrk_gymsis",
+			"modified": 1715774400000,
+			"created": 1715774400000,
+			"name": "Local Environment",
+			"data": {
+				"base_url": "http://localhost:8000"
+			},
+			"dataPropertyOrder": {
+				"&": [
+					"base_url"
+				]
+			},
+			"color": null,
+			"isPrivate": false,
+			"metaSortKey": 1715774400000,
+			"_type": "environment"
+		},
+		{
+			"_id": "fld_auth",
+			"parentId": "wrk_gymsis",
+			"modified": 1715774400000,
+			"created": 1715774400000,
+			"name": "Autenticación",
+			"description": "",
+			"environment": {},
+			"environmentPropertyOrder": null,
+			"metaSortKey": -1715774400000,
+			"_type": "request_group"
+		},
+		{
+			"_id": "req_login",
+			"parentId": "fld_auth",
+			"modified": 1715774400000,
+			"created": 1715774400000,
+			"url": "{{ _.base_url }}/admin/login",
+			"name": "Login Panel (Web POST)",
+			"description": "Intento de login vía web. Nota: Requiere manejo de CSRF token si se prueba manualmente.",
+			"method": "POST",
+			"body": {
+				"mimeType": "application/x-www-form-urlencoded",
+				"params": [
+					{
+						"name": "email",
+						"value": "admin@gymsis.com"
+					},
+					{
+						"name": "password",
+						"value": "Admin123!"
+					}
+				]
+			},
+			"parameters": [],
+			"headers": [
+				{
+					"name": "Content-Type",
+					"value": "application/x-www-form-urlencoded"
+				}
+			],
+			"authentication": {},
+			"metaSortKey": -1715774400000,
+			"isPrivate": false,
+			"settingStoreCookies": true,
+			"settingSendCookies": true,
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingRebuildPath": true,
+			"settingFollowRedirects": "global",
+			"_type": "request"
+		},
+		{
+			"_id": "fld_users",
+			"parentId": "wrk_gymsis",
+			"modified": 1715774400000,
+			"created": 1715774400000,
+			"name": "Gestión de Usuarios",
+			"description": "",
+			"environment": {},
+			"environmentPropertyOrder": null,
+			"metaSortKey": -1715774300000,
+			"_type": "request_group"
+		},
+		{
+			"_id": "req_list_users",
+			"parentId": "fld_users",
+			"modified": 1715774400000,
+			"created": 1715774400000,
+			"url": "{{ _.base_url }}/admin/users",
+			"name": "Listar Usuarios (Panel)",
+			"description": "Acceso a la tabla de usuarios de Filament.",
+			"method": "GET",
+			"body": {},
+			"parameters": [],
+			"headers": [],
+			"authentication": {},
+			"metaSortKey": -1715774400000,
+			"isPrivate": false,
+			"settingStoreCookies": true,
+			"settingSendCookies": true,
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingRebuildPath": true,
+			"settingFollowRedirects": "global",
+			"_type": "request"
+		},
+		{
+			"_id": "req_health",
+			"parentId": "wrk_gymsis",
+			"modified": 1715774400000,
+			"created": 1715774400000,
+			"url": "{{ _.base_url }}/up",
+			"name": "Health Check (UP)",
+			"description": "Verificar que el servidor Laravel esté activo.",
+			"method": "GET",
+			"body": {},
+			"parameters": [],
+			"headers": [],
+			"authentication": {},
+			"metaSortKey": -1715774200000,
+			"isPrivate": false,
+			"settingStoreCookies": true,
+			"settingSendCookies": true,
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingRebuildPath": true,
+			"settingFollowRedirects": "global",
+			"_type": "request"
+		}
+	]
+}
