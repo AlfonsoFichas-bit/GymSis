@@ -70,8 +70,8 @@
 			"modified": 1715774400000,
 			"created": 1715774400000,
 			"url": "{{ _.base_url }}/admin/users",
-			"name": "AC-2: Validación CI Duplicado",
-			"description": "Intento de registro mediante post (simulado) para validar unicidad de CI.",
+			"name": "AC-2: Crear Usuario (POST)",
+			"description": "Creación de usuario vía POST. Envío dos veces con el mismo CI para validar unicidad (1° 201, 2° 422).",
 			"method": "POST",
 			"body": {
 				"mimeType": "application/x-www-form-urlencoded",
@@ -83,6 +83,18 @@
 					{
 						"name": "name",
 						"value": "Test User"
+					},
+					{
+						"name": "email",
+						"value": "test@gymsis.com"
+					},
+					{
+						"name": "password",
+						"value": "Test1234!"
+					},
+					{
+						"name": "type",
+						"value": "cliente"
 					}
 				]
 			},
