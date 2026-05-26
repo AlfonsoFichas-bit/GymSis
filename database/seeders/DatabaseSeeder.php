@@ -21,7 +21,7 @@ class DatabaseSeeder extends Seeder
 
         // Crear usuario administrador por defecto
         $admin = User::factory()->create([
-            'name' => 'Admin GymSis',
+            'name' => 'Admin SPAZIO',
             'email' => 'admin@gymsis.com',
             'password' => Hash::make('Admin123!'), // Contraseña segura: Min, May, Num, Especial
             'type' => 'admin',

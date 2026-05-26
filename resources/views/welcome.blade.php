@@ -29,7 +29,7 @@
             <div
                 class="font-display-lg text-headline-md italic uppercase text-primary tracking-tighter"
             >
-                VOLTAGE GRIT
+                SPAZIO FITNESS
             </div>
             <div class="hidden md:flex space-x-8 items-center">
                 <a
